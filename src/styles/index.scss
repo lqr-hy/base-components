@@ -1,0 +1,15 @@
+// config
+// 导入时不需要加入下划线 表示这些文件只能被导入，不能编译成单独的文件
+@import "variables";
+
+// layout
+@import "reboot";
+
+// // mixin
+// @import "mixin";
+
+// // animation
+// @import "animation";
+
+// Button
+@import '../components/Button//styles'
