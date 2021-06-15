@@ -2,17 +2,9 @@ import classNames from 'classnames'
 import React from 'react'
 // import PropsType from 'prop-types'
 
-export enum ButtonSize {
-  Large = 'lg',
-  Samll = 'sm'
-}
+export type ButtonSize = 'lg' | 'sm'
 
-export enum ButtonType {
-  Primary = 'primary',
-  Default = 'default',
-  Danger = 'danger',
-  Link = 'link'
-}
+export type ButtonType = 'primary' | 'default' | 'danger' | 'link'
 
 interface BaseButtonProps {
   className?: string
@@ -22,24 +14,33 @@ interface BaseButtonProps {
   children?: React.ReactNode
   herf?: string
 }
+// button 的默认属性
+type NativeButtonProps = React.ButtonHTMLAttributes<HTMLElement> &
+  BaseButtonProps
+// A 标签的默认属性
+type AnchorButtonProps = React.AnchorHTMLAttributes<HTMLElement> &
+  BaseButtonProps
+// 选择其中的某一项
+export type ButtonProps = Partial<NativeButtonProps & AnchorButtonProps>
 
-const Button: React.FC<BaseButtonProps> = (props) => {
-  const { btnType, disabled, size, children, herf } = props
+const Button: React.FC<ButtonProps> = (props) => {
+  const { btnType, disabled, size, children, herf, className, ...restProps } =
+    props
   // btn- classNames 设置样式名
-  const classes = classNames('btn', {
-    [`btn-${btnType}`]: btnType,
-    [`btn-${size}`]: size,
-    disable: btnType === ButtonType.Link && disabled
+  const classes = classNames('l-btn', className, {
+    [`l-btn-${btnType}`]: btnType,
+    [`l-btn-${size}`]: size,
+    disabled: btnType === 'link'&& disabled
   })
-  if (btnType === ButtonType.Link) {
+  if (btnType === 'link') {
     return (
-      <a className={classes} href={herf}>
+      <a className={classes} href={herf} {...restProps}>
         {children}
       </a>
     )
   } else {
     return (
-      <button disabled={disabled} className={classes}>
+      <button disabled={disabled} className={classes} {...restProps}>
         {children}
       </button>
     )
@@ -50,7 +51,7 @@ const Button: React.FC<BaseButtonProps> = (props) => {
 Button.defaultProps = {
   disabled: false,
   children: '按钮',
-  btnType: ButtonType.Default
+  btnType: 'default'
 }
 
 // 约定类型

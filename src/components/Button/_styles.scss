@@ -1,4 +1,4 @@
-.btn{
+.l-btn {
   position: relative;
   display: inline-block;
   font-weight: $btn-font-weight;
@@ -9,14 +9,20 @@
   vertical-align: middle;
   background-image: none;
   border: $btn-border-width solid transparent;
-  padding: $btn-padding-y, $btn-padding-x;
-  font-size: $btn-font-size;
-  border-radius: $border-radius;
+  // padding: $btn-padding-y, $btn-padding-x;
+  // font-size: $btn-font-size;
+  // border-radius: $border-radius;
+  @include button-size(
+    $btn-padding-y,
+    $btn-padding-x,
+    $btn-font-size,
+    $border-radius
+  );
   box-shadow: $btn-box-shadow;
   cursor: pointer;
   transition: $btn-transition;
   &.disabled,
-  &[disabled]{
+  &[disabled] {
     cursor: not-allowed;
     opacity: $btn-disabled-opacity;
     box-shadow: none;
@@ -24,5 +30,57 @@
       // 取消鼠标事件
       pointer-events: none;
     }
+  }
+}
+
+.l-btn-lg {
+  @include button-size(
+    $btn-padding-y-lg,
+    $btn-padding-x-lg,
+    $btn-font-size-lg,
+    $border-radius-lg
+  );
+}
+
+.l-btn-sm {
+  @include button-size(
+    $btn-padding-y-sm,
+    $btn-padding-x-sm,
+    $btn-font-size-sm,
+    $border-radius-sm
+  );
+}
+
+.l-btn-primary {
+  @include button-style($primary, $primary, $white);
+}
+
+.l-btn-danger {
+  @include button-style($danger, $danger, $white);
+}
+
+.l-btn-default {
+  @include button-style(
+    $white,
+    $gray-400,
+    $body-color,
+    $white,
+    $primary,
+    $primary
+  );
+}
+
+.l-btn-link {
+  font-weight: $font-weight-normal;
+  color: $btn-link-color;
+  text-decoration: $link-decoration;
+  box-shadow: none;
+  &:hover {
+    color: $btn-link-hover-color;
+    text-decoration: $link-decoration;
+  }
+  &.disabled {
+    color: $btn-link-disabled-color;
+    pointer-events: none;
   }
 }

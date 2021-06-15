@@ -5,11 +5,14 @@
 // layout
 @import "reboot";
 
-// // mixin
-// @import "mixin";
+// mixin
+@import "mixin";
 
 // // animation
 // @import "animation";
 
 // Button
-@import '../components/Button//styles'
+@import '../components/Button/styles';
+
+//  Menu
+@import '../components/Menu/styles';
