@@ -6,7 +6,7 @@ export interface MenuItemProps {
   className?: string
   disabled?: boolean
   style?: React.CSSProperties
-  index: number
+  index?: string
 }
 
 const MenuItem: React.FC<MenuItemProps> = (props) => {
@@ -18,7 +18,7 @@ const MenuItem: React.FC<MenuItemProps> = (props) => {
   })
 
   const handleClick = () => {
-    if (context.onSelect && !disabled) {
+    if (context.onSelect && !disabled && (typeof index === 'string')) {
       context.onSelect(index)
     }
   }
@@ -29,4 +29,6 @@ const MenuItem: React.FC<MenuItemProps> = (props) => {
   )
 }
 
+// 判断类型
+MenuItem.displayName = 'MenuItem'
 export default MenuItem

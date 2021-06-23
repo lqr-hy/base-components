@@ -2,14 +2,20 @@ import React from 'react'
 import Button from './components/Button'
 import Menu from './components/Menu'
 import MenuItem from './components/Menu/MenuItem'
+import SubMenu from './components/Menu/SubMenu'
 
 function App() {
   return (
     <div className="App">
-      <Menu defaultIndex={0} mode='vertical'>
-        <MenuItem index={0}>A</MenuItem>
-        <MenuItem index={1}>B</MenuItem>
-        <MenuItem index={2 }>C</MenuItem>
+      <Menu defaultIndex='0' onSelect={(index) => alert(index)} mode='vertical' defaultOpenSubMenus={['2']}>
+        <MenuItem >A</MenuItem>
+        <MenuItem >B</MenuItem>
+        <SubMenu title='dropdown'>
+          <MenuItem>1</MenuItem>
+          <MenuItem>2</MenuItem>
+          <MenuItem>3</MenuItem>
+        </SubMenu>
+        <MenuItem >C</MenuItem>
       </Menu>
       <Button
         onClick={(e) => {
