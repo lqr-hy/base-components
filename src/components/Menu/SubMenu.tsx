@@ -1,7 +1,9 @@
 import React, { useContext, FunctionComponentElement, useState } from 'react'
 import classNames from 'classnames'
-import { MenuContext } from './index'
+import { MenuContext } from './Menu'
 import { MenuItemProps } from './MenuItem'
+import Icon from '../Icon/Icon'
+import Transition from '../Transition/Transition'
 
 export interface SubMenuProps {
   className?: string
@@ -22,7 +24,9 @@ const SubMenu: React.FC<SubMenuProps> = ({
   const [openMenu, setOpen] = useState(isOpened)
   const classes = classNames('l-menu-item l-submenu-item', {
     'l-is-active': content.index === index,
-    'l-is-vertical': content.mode === 'vertical'
+    'l-is-vertical': content.mode === 'vertical',
+    // 是否默认打开
+    'is-opened': openMenu
   })
 
   // 处理纵向点击
@@ -66,12 +70,21 @@ const SubMenu: React.FC<SubMenuProps> = ({
         console.error('Warnning:  SubMenu children must be MenuItem')
       }
     })
-    return <ul className={subClassName}>{chilrenComponent}</ul>
+    return (
+      <Transition
+        in={openMenu}
+        timeout={300}
+        animation='zoom-in-right' 
+      >
+        <ul className={subClassName}>{chilrenComponent}</ul>
+      </Transition>
+    )
   }
   return (
     <li key="index" className={classes} {...moveModeHor}>
       <div className="l-submenu-title" {...clickModeVer}>
         {title}
+        <Icon icon='angle-down' className='l-arrow-icon'/>
       </div>
       {renderChildren()}
     </li>

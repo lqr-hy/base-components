@@ -1,13 +1,20 @@
 import React from 'react'
-import Button from './components/Button'
-import Menu from './components/Menu'
+import Button from './components/Button/Button'
+import Menu from './components/Menu/Menu'
 import MenuItem from './components/Menu/MenuItem'
 import SubMenu from './components/Menu/SubMenu'
+import Icon from './components/Icon/Icon'
+// 引入icon组件库
+import { library } from '@fortawesome/fontawesome-svg-core'
+// 引入全部字体图标
+import { fas } from '@fortawesome/free-solid-svg-icons'
+library.add(fas)
 
 function App() {
   return (
     <div className="App">
-      <Menu defaultIndex='0' onSelect={(index) => alert(index)} mode='vertical' defaultOpenSubMenus={['2']}>
+      <Icon theme='danger' icon='arrow-down' size='lg'/>
+      <Menu defaultIndex='0' onSelect={(index) => alert(index)} mode='horizontal' defaultOpenSubMenus={['2']}>
         <MenuItem >A</MenuItem>
         <MenuItem >B</MenuItem>
         <SubMenu title='dropdown'>

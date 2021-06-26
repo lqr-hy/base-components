@@ -1,40 +1,74 @@
-@mixin button-size(
-  $btn-padding-y,
-  $btn-padding-x,
-  $btn-font-size,
-  $border-radius
-) {
-  font-size: $btn-font-size;
-  padding: $btn-padding-y $btn-padding-x;
+@mixin button-size ($padding-y, $padding-x, $font-size, $border-radius) {
+  padding: $padding-y $padding-x;
+  font-size: $font-size;
   border-radius: $border-radius;
 }
 
-@mixin button-style(
+@mixin button-style (
   $background,
   $border,
   $color,
   $hover-background: lighten($background, 7.5%),
-  $hover-border: lighten($border, 7.5%),
-  $hover-color: $color
+  $hover-border: lighten($border, 10%),
+  $hover-color: $color,
+  $border-style: solid
 ) {
   color: $color;
   background: $background;
   border-color: $border;
+  border-style: $border-style;
   &:hover {
     color: $hover-color;
-    background: $hover-background;
+    background:$hover-background;
     border-color: $hover-border;
   }
   &:focus,
-  &.foucs {
+  &.focus {
     color: $hover-color;
-    background: $hover-background;
+    background:$hover-background;
     border-color: $hover-border;
   }
   &:disabled,
   &.disabled {
     color: $color;
-    background: $background;
+    background:$background;
     border-color: $border;
   }
+}
+
+@mixin zoom-animation(
+  $direction: 'top',
+  $scaleStart: scaleY(0),
+  $scaleEnd: scaleY(1),
+  $origin: center top
+) {
+  .zoom-in-#{$direction}-enter {
+    opacity: 0;
+    transform: $scaleStart;
+  }
+  .zoom-in-#{$direction}-enter-active {
+    opacity: 1;
+    transform: $scaleEnd;
+    transition: transform 300ms cubic-bezier(0.23, 1, 0.32, 1) 100ms, opacity 300ms cubic-bezier(0.23, 1, 0.32, 1) 100ms;
+    transform-origin: $origin;
+  }
+  .zoom-in-#{$direction}-exit {
+    opacity: 1;
+  }
+  .zoom-in-#{$direction}-exit-active {
+    opacity: 0;
+    transform: $scaleStart;
+    transition: transform 300ms cubic-bezier(0.23, 1, 0.32, 1) 100ms, opacity 300ms cubic-bezier(0.23, 1, 0.32, 1) 100ms;
+    transform-origin: $origin;
+  }
+}
+
+@mixin border-right-radius($radius) {
+  border-top-right-radius: $radius;
+  border-bottom-right-radius: $radius;
+}
+
+@mixin border-left-radius($radius) {
+  border-top-left-radius: $radius;
+  border-bottom-left-radius: $radius;
 }
