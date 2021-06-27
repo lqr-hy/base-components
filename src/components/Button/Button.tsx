@@ -4,15 +4,23 @@ import React from 'react'
 
 export type ButtonSize = 'lg' | 'sm'
 
-export type ButtonType = 'primary' | 'default' | 'danger' | 'link'
+export type ButtonType = 'primary' | 'default' | 'danger' | 'link' | 'success' | 'info' | 'warning'
 
-interface BaseButtonProps {
+export interface BaseButtonProps {
+  /** 自定义类 */
   className?: string
+  /** 是否禁用 */
   disabled?: boolean
+  /** 大小 */
   size?: ButtonSize
+  /** 按钮类型 */
   btnType?: ButtonType
+  /** 内容 */
   children?: React.ReactNode
-  herf?: string
+  /** 链接 */
+  herf?: string,
+  /** 回调函数 */
+  onClick?: Function
 }
 // button 的默认属性
 type NativeButtonProps = React.ButtonHTMLAttributes<HTMLElement> &
@@ -24,7 +32,7 @@ type AnchorButtonProps = React.AnchorHTMLAttributes<HTMLElement> &
 export type ButtonProps = Partial<NativeButtonProps & AnchorButtonProps>
 
 const Button: React.FC<ButtonProps> = (props) => {
-  const { btnType, disabled, size, children, herf, className, ...restProps } =
+  const { btnType, disabled, size, children, herf, className, onClick,  ...restProps } =
     props
   // btn- classNames 设置样式名
   const classes = classNames('l-btn', className, {
@@ -40,7 +48,7 @@ const Button: React.FC<ButtonProps> = (props) => {
     )
   } else {
     return (
-      <button disabled={disabled} className={classes} {...restProps}>
+      <button disabled={disabled} className={classes} {...restProps} onClick={onClick}>
         {children}
       </button>
     )

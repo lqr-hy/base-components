@@ -45,8 +45,10 @@ const SubMenu: React.FC<SubMenuProps> = ({
   }
 
   //  判断是横向还是纵向
-  const clickModeVer = content.mode === 'vertical' ? { onClick: handerClick } : {}
-  const moveModeHor = content.mode !== 'vertical'
+  const clickModeVer =
+    content.mode === 'vertical' ? { onClick: handerClick } : {}
+  const moveModeHor =
+    content.mode !== 'vertical'
       ? {
           onMouseEnter: (e: React.MouseEvent) => {
             handerEnter(e, true)
@@ -71,11 +73,7 @@ const SubMenu: React.FC<SubMenuProps> = ({
       }
     })
     return (
-      <Transition
-        in={openMenu}
-        timeout={300}
-        animation='zoom-in-right' 
-      >
+      <Transition in={openMenu} timeout={300} animation="zoom-in-right">
         <ul className={subClassName}>{chilrenComponent}</ul>
       </Transition>
     )
@@ -84,7 +82,7 @@ const SubMenu: React.FC<SubMenuProps> = ({
     <li key="index" className={classes} {...moveModeHor}>
       <div className="l-submenu-title" {...clickModeVer}>
         {title}
-        <Icon icon='angle-down' className='l-arrow-icon'/>
+        <Icon icon="angle-down" className="l-arrow-icon" />
       </div>
       {renderChildren()}
     </li>

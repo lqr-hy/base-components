@@ -1,3 +1,6 @@
+button{
+  outline:none;
+}
 .l-btn {
   position: relative;
   display: inline-block;
@@ -57,6 +60,17 @@
 
 .l-btn-danger {
   @include button-style($danger, $danger, $white);
+}
+
+// @each $key, $val in $btn-theme-colors {
+//   .l-btn-#{$key} {
+//     @include button-style($key, $val, $white);
+//   }
+// }
+@each $key, $val in $btn-theme-colors {
+  .l-btn-#{$key}{
+    @include button-style($val, $val, $white);
+  }
 }
 
 .l-btn-default {
