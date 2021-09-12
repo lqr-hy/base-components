@@ -8,21 +8,45 @@ import Icon from './components/Icon/Icon'
 import { library } from '@fortawesome/fontawesome-svg-core'
 // 引入全部字体图标
 import { fas } from '@fortawesome/free-solid-svg-icons'
+import LongListScroll from './components/LongListScroll'
 library.add(fas)
 
+
+const list: Array<any> = []
+for (let i = 0; i < 100; i++) {
+  list.push({
+    name: i,
+    num: i + '你好'
+  })
+}
 function App() {
+  const renderList = (style: any, list: any[]) => {
+    console.log(list, style)
+    return list.map((item, index) => {
+      return (
+        <div className="l-list-item" key={index} style={style}>
+          {item.num}
+        </div>
+      )
+    })
+  }
   return (
     <div className="App">
-      <Icon theme='danger' icon='arrow-down' size='lg'/>
-      <Menu defaultIndex='0' onSelect={(index) => alert(index)} mode='horizontal' defaultOpenSubMenus={['2']}>
-        <MenuItem >A</MenuItem>
-        <MenuItem >B</MenuItem>
-        <SubMenu title='dropdown'>
+      <Icon theme="danger" icon="arrow-down" size="lg" />
+      <Menu
+        defaultIndex="0"
+        onSelect={(index) => alert(index)}
+        mode="horizontal"
+        defaultOpenSubMenus={['2']}
+      >
+        <MenuItem>A</MenuItem>
+        <MenuItem>B</MenuItem>
+        <SubMenu title="dropdown">
           <MenuItem>1</MenuItem>
           <MenuItem>2</MenuItem>
           <MenuItem>3</MenuItem>
         </SubMenu>
-        <MenuItem >C</MenuItem>
+        <MenuItem>C</MenuItem>
       </Menu>
       <Button
         onClick={(e) => {
@@ -47,6 +71,12 @@ function App() {
         {' '}
         Danger
       </Button>
+      <LongListScroll
+        listData={list}
+        countHeight={100}
+        rendNum={15}
+        render={renderList}
+      />
       App
     </div>
   )

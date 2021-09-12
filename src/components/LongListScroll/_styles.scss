@@ -1,0 +1,28 @@
+.l-list-container {
+  height: 500px;
+  overflow: auto;
+  position: relative;
+  -webkit-overflow-scrolling: touch;
+}
+
+.l-list-phantom {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  z-index: -1;
+}
+
+.l-list {
+  left: 0;
+  right: 0;
+  top: 0;
+  position: absolute;
+}
+
+.l-list-item {
+  padding: 10px;
+  color: #555;
+  box-sizing: border-box;
+  border-bottom: 1px solid #999;
+}
