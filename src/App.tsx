@@ -11,7 +11,6 @@ import { fas } from '@fortawesome/free-solid-svg-icons'
 import LongListScroll from './components/LongListScroll'
 library.add(fas)
 
-
 const list: Array<any> = []
 for (let i = 0; i < 100; i++) {
   list.push({
