@@ -4,12 +4,7 @@ import Menu from './components/Menu/Menu'
 import MenuItem from './components/Menu/MenuItem'
 import SubMenu from './components/Menu/SubMenu'
 import Icon from './components/Icon/Icon'
-// 引入icon组件库
-import { library } from '@fortawesome/fontawesome-svg-core'
-// 引入全部字体图标
-import { fas } from '@fortawesome/free-solid-svg-icons'
 import LongListScroll from './components/LongListScroll'
-library.add(fas)
 
 const list: Array<any> = []
 for (let i = 0; i < 100; i++) {
@@ -57,10 +52,10 @@ function App() {
       </Button>
       <Button size="lg">大</Button>
       <Button size="sm">小</Button>
-      <Button btnType="link" herf="http://www.baidu.com" disabled>
+      <Button btnType="link" href="http://www.baidu.com" disabled>
         disabled link
       </Button>
-      <Button btnType="link" target="_blank" herf="http://www.baidu.com">
+      <Button btnType="link" target="_blank" href="http://www.baidu.com">
         Link
       </Button>
       <Button btnType="primary">Primary</Button>

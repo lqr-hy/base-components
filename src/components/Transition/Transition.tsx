@@ -4,8 +4,7 @@ import { CSSTransitionProps } from 'react-transition-group/CSSTransition'
 
 type AnimationName = 'zoom-in-top' | 'zoom-in-left' | 'zoom-in-right' | 'zoom-in-bottom'
 
-// 4.2.4 之后CSSTransitionProps 变成了 type，不能再这么使用
-interface TransitionProps extends CSSTransitionProps{
+type  TransitionProps =  CSSTransitionProps & {
   animation?: AnimationName
 }
 

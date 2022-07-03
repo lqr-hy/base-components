@@ -60,7 +60,7 @@ const Menu: React.FC<IMenuProps> = (props) => {
         // 克隆元素
         return React.cloneElement(childElement, { index: index.toString() })
       } else {
-        console.error('Warrning: you should input MenuItem component')
+        console.error('Warnning: you should input MenuItem component')
       }
     })
   }

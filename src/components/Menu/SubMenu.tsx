@@ -30,13 +30,13 @@ const SubMenu: React.FC<SubMenuProps> = ({
   })
 
   // 处理纵向点击
-  const handerClick = (e: React.MouseEvent) => {
+  const handleClick = (e: React.MouseEvent) => {
     e.preventDefault()
     setOpen(!openMenu)
   }
   let timer: any
   //  处理横向触摸
-  const handerEnter = (e: React.MouseEvent, toggle: boolean) => {
+  const handleEnter = (e: React.MouseEvent, toggle: boolean) => {
     clearTimeout(timer)
     e.preventDefault()
     timer = setTimeout(() => {
@@ -46,15 +46,15 @@ const SubMenu: React.FC<SubMenuProps> = ({
 
   //  判断是横向还是纵向
   const clickModeVer =
-    content.mode === 'vertical' ? { onClick: handerClick } : {}
+    content.mode === 'vertical' ? { onClick: handleClick } : {}
   const moveModeHor =
     content.mode !== 'vertical'
       ? {
           onMouseEnter: (e: React.MouseEvent) => {
-            handerEnter(e, true)
+            handleEnter(e, true)
           },
           onMouseLeave: (e: React.MouseEvent) => {
-            handerEnter(e, false)
+            handleEnter(e, false)
           }
         }
       : {}
