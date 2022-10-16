@@ -1,35 +1,47 @@
 {
   "name": "lqr-ui",
-  "version": "0.1.0",
-  "private": true,
+  "version": "0.1.1",
+  "private": false,
+  "description": "React base components library",
+  "author": "lqr",
+  "license": "MIT",
+  "keywords": [
+    "Component",
+    "UI",
+    "React"
+  ],
+  "homepage": "https://github.com/lqrDream/base-components.git",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lqrDream/base-components.git"
+  },
+  "files": [
+    "dist"
+  ],
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
     "@fortawesome/react-fontawesome": "^0.2.0",
-    "@testing-library/jest-dom": "^5.14.1",
-    "@testing-library/user-event": "^12.8.3",
-    "@types/jest": "^26.0.23",
-    "@types/node": "^12.20.15",
-    "@types/react": "^17.0.11",
-    "@types/react-dom": "^17.0.8",
-    "@types/react-transition-group": "^4.2.3",
-    "babel-plugin-macros": "^3.1.0",
     "classnames": "^2.3.1",
-    "node-sass": "^7.0.3",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-scripts": "4.0.3",
-    "react-transition-group": "^4.3.0",
-    "typescript": "^4.3.4",
-    "web-vitals": "^1.1.2"
+    "react-transition-group": "^4.3.0"
+  },
+  "peerDependencies": {
+    "react": ">= 17.0.0",
+    "react-dom": ">= 17.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "rimraf ./dist && npm run build-css && npm run build-ts",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "build-ts": "tsc -p tsconfig.build.json",
+    "build-css": "node-sass ./src/styles/index.scss ./dist/index.css",
     "storybook": "start-storybook -p 6006 -s public",
-    "build-storybook": "build-storybook -s public"
+    "build-storybook": "build-storybook -s public",
+    "prepublishOnly": "npm run build"
   },
   "eslintConfig": {
     "extends": [
@@ -66,6 +78,21 @@
     "@storybook/node-logger": "^6.5.12",
     "@storybook/preset-create-react-app": "^3.1.7",
     "@storybook/react": "^6.5.12",
-    "@testing-library/react": "^11.2.7"
+    "@testing-library/react": "^11.2.7",
+    "@types/jest": "^26.0.23",
+    "@types/node": "^12.20.15",
+    "@types/react": "^17.0.11",
+    "@types/react-dom": "^17.0.8",
+    "@types/react-transition-group": "^4.2.3",
+    "node-sass": "^7.0.3",
+    "react-scripts": "4.0.3",
+    "typescript": "^4.3.4",
+    "rimraf": "^3.0.2",
+    "web-vitals": "^1.1.2",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/user-event": "^12.8.3",
+    "babel-plugin-macros": "^3.1.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
   }
 }
