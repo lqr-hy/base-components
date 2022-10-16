@@ -15,7 +15,6 @@ for (let i = 0; i < 100; i++) {
 }
 function App() {
   const renderList = (style: any, list: any[]) => {
-    console.log(list, style)
     return list.map((item, index) => {
       return (
         <div className="l-list-item" key={index} style={style}>

@@ -37,12 +37,14 @@ export const ColorCanvas: React.FC<IColorCanvasProps> = (props) => {
     return () => {
       document.body.removeEventListener('click', cancelPanel)
     }
+    // react-hooks/exhaustive-deps
   }, [])
 
   useEffect(() => {
     if (curColor) {
       resetCurColor()
     }
+    // react-hooks/exhaustive-deps
   }, [curColor])
 
   const init = () => {
@@ -292,13 +294,13 @@ export const ColorCanvas: React.FC<IColorCanvasProps> = (props) => {
     if (reg.test(color)) {
       if (color.length === 4) {
         let colorNew = '#'
-        for (var i = 1; i < color.length; i += 1) {
+        for (let i = 1; i < color.length; i += 1) {
           colorNew += color.slice(i, i + 1).concat(color.slice(i, i + 1))
         }
         color = colorNew
       }
       const colorChange = []
-      for (var i = 1; i < color.length; i += 2) {
+      for (let i = 1; i < color.length; i += 2) {
         colorChange.push(parseInt('0x' + color.slice(i, i + 2)))
       }
       return 'rgb(' + colorChange.join(',') + ')'
