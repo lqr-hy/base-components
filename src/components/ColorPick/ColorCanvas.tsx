@@ -83,7 +83,7 @@ export const ColorCanvas: React.FC<IColorCanvasProps> = (props) => {
   }
 
   /* canvas点击 */
-  const onCanvasClick = (e) => {
+  const onCanvasClick = (e: any) => {
     const ePos = {
       x: e.nativeEvent.offsetX || e.nativeEvent.layerX,
       y: e.nativeEvent.offsetY || e.nativeEvent.layerY
