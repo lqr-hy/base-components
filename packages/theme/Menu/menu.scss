@@ -1,0 +1,127 @@
+.l-menu-container {
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 0;
+  margin-bottom: 30px;
+  list-style: none;
+  border-bottom: 1px solid #dee2e6;
+  box-shadow:
+    inset 0 1px 0 rgba(#fff, 0.15),
+    0 1px 1px rgba(#000, 0.075);
+
+  .l-menu-item {
+    padding: 5px 16px;
+    cursor: pointer;
+    transition:
+      color 0.15s ease-in-out,
+      border-color 0.15s ease-in-out;
+
+    &:hover,
+    &focus {
+      text-decoration: none;
+    }
+
+    &.l-is-disabled {
+      color: #6c757d;
+      pointer-events: none;
+      cursor: default;
+    }
+
+    &.l-is-active,
+    &:hover {
+      color: #0d6efd;
+      border-bottom: 2px solid #0d6efd;
+    }
+  }
+
+  .l-submenu-item {
+    position: relative;
+
+    .l-submenu-title {
+      display: flex;
+      align-items: center;
+    }
+
+    .l-arrow-icon {
+      transition: transform 0.25s ease-in-out;
+      margin-left: 3px;
+    }
+
+    &:hover {
+      .l-arrow-icon {
+        transform: rotate(-180deg);
+      }
+    }
+  }
+
+  .l-is-vertical {
+    .l-arrow-icon {
+      transform: rotate(0) !important;
+    }
+  }
+
+  .l-is-vertical.is-opened {
+    .l-arrow-icon {
+      transform: rotate(-180deg) !important;
+    }
+  }
+
+  .l-submenu {
+    display: none;
+    list-style: none;
+    padding-left: 0;
+    white-space: nowrap;
+
+    .l-menu-item {
+      padding: 5px 16px;
+      cursor: pointer;
+      transition:
+        color 0.15s ease-in-out,
+        border-color 0.15s ease-in-out;
+      color: #212529;
+
+      &.is-active,
+      &:hover {
+        color: #0d6efd !important;
+      }
+    }
+  }
+
+  .l-submenu.menu-opened {
+    display: block;
+  }
+}
+
+.l-menu-vertical {
+  flex-direction: column;
+  border-bottom: 0;
+  border-right: 1px solid #dee2e6;
+
+  .l-menu-item {
+    border-left: 2px solid transparent;
+
+    &.l-is-active,
+    &:hover {
+      border-bottom: 0;
+      border-left: 2px solid #0d6efd;
+    }
+  }
+}
+
+.l-menu-horizontal {
+  > .l-menu-item {
+    border-bottom: 2px solid transparent;
+  }
+
+  .l-submenu {
+    position: absolute;
+    background: #fff;
+    z-index: 100;
+    top: calc(100% + 8px);
+    left: 0;
+    border: 1px solid #dee2e6;
+    box-shadow:
+      0 2px 4px 0 rgb(0 0 0 / 12%),
+      0 0 6px 0 rgb(0 0 0 / 4%);
+  }
+}

@@ -1,0 +1,4 @@
+{
+  "*.{js,jsx,ts,tsx}": ["pnpm run format", "pnpm run lint"],
+  "*.{css,scss}": ["pnpm run lint:style"]
+}

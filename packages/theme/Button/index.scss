@@ -1,0 +1,85 @@
+@use "sass:color";
+
+@mixin button-style(
+  $background,
+  $border,
+  $color,
+  $hover-background: color.adjust($background, $lightness: 7.5%),
+  $hover-border: color.adjust($background, $lightness: 10%),
+  $hover-color: $color,
+  $border-style: solid
+) {
+  color: $color;
+  background: $background;
+  border-color: $border;
+  border-style: $border-style;
+
+  &.l-btn-3d {
+    box-shadow: 0 4px 6px color.adjust($border, $lightness: 10%);
+    transition: transform 0.1s ease-in-out, box-shadow 0.1s ease-in-out;
+
+    &:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
+    }
+  }
+
+  &:hover {
+    color: $hover-color;
+    background:$hover-background;
+    border-color: $hover-border;
+  }
+
+  &:focus,
+  &.focus {
+    color: $hover-color;
+    background:$hover-background;
+    border-color: $hover-border;
+  }
+
+  &:disabled,
+  &.disabled {
+    color: $color;
+    background:$background;
+    border-color: $border;
+  }
+}
+
+.l-btn {
+  position: relative;
+  overflow: hidden;
+  color: var(--gray-900);
+  white-space: nowrap;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  cursor: pointer;
+  box-sizing: border-box;
+
+  &.disabled,
+  &[disabled] {
+    cursor: not-allowed;
+    opacity: .65;
+    box-shadow: none;
+
+    > * {
+      // 取消鼠标事件
+      pointer-events: none;
+    }
+  }
+}
+
+$btn-theme-colors: (
+  "primary": #0d6efd,
+  "success": #52c41a,
+  "info":    #17a2b8,
+  "warning": #fadb14,
+  "danger":  #dc3545 
+);
+
+@each $key, $val in $btn-theme-colors {
+  .l-btn-#{$key}{
+    @include button-style($val, $val, white);
+  }
+}

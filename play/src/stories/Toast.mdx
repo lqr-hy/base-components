@@ -1,0 +1,55 @@
+
+{/* Toast.mdx */}
+
+import { toast, Button } from '@xb-onepiece/components';
+
+# Toast 组件
+
+`Toast` 组件用于显示简短的消息通知。
+
+## 使用示例
+
+```jsx
+import React from 'react';
+import { toast, Button } from '@xb-onepiece/components';
+
+export default function Example() {
+  const showToast = () => {
+    toast({
+      type: 'success',
+      content: '成功'
+    })
+  }
+
+  return (
+    <div>
+      <Button onClick={() => }/>
+    </div>
+  );
+}
+```
+
+<Button btnType='success' onClick={() => 
+  toast({
+    type: 'success',
+    content: 'success'
+  })
+}>success</Button>
+<Button btnType='warning' onClick={() => 
+  toast({
+    type: 'warning',
+    content: 'warning'
+  })
+}>warning</Button>
+<Button btnType='default' onClick={() => 
+  toast({
+    type: 'default',
+    content: 'default'
+  })
+}>default</Button>
+<Button btnType='danger' onClick={() => 
+  toast({
+    type: 'error',
+    content: 'error'
+  })
+}>error</Button>

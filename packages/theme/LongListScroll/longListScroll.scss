@@ -1,0 +1,21 @@
+.l-virtual-container {
+  height: 500px;
+  overflow: auto;
+  position: relative;
+  -webkit-overflow-scrolling: touch;
+}
+
+.l-virtual-phantom {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  z-index: -1;
+}
+
+.l-virtual-list {
+  left: 0;
+  right: 0;
+  top: 0;
+  position: absolute;
+}
