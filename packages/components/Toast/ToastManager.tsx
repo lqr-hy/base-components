@@ -1,10 +1,11 @@
-import React, { useState, useCallback, useImperativeHandle, forwardRef } from 'react';
+import React, { useState, useImperativeHandle, forwardRef } from 'react';
 import { createRoot } from 'react-dom/client';
 import Toast, { ToastType } from './Toast';
 
 export interface ToastOptions {
   type: ToastType;
   content: string;
+  id?: number;
   duration?: number;
   onEnter?: () => void;
   onExited?: () => void;
@@ -17,13 +18,19 @@ export interface ToastManagerHandles {
 export const ToastManager = forwardRef<ToastManagerHandles>((props, ref) => {
   const [toasts, setToasts] = useState<ToastOptions[]>([]);
 
-  const addToast = useCallback((toast: ToastOptions) => {
-    setToasts((prevToasts) => [...prevToasts, toast]);
-  }, []);
+  const addToast = (toast: ToastOptions) => {
+    setToasts((prevToasts) => [
+      ...prevToasts,
+      {
+        id: (prevToasts?.[prevToasts.length - 1]?.id ?? 0) + 1,
+        ...toast
+      }
+    ]);
+  };
 
-  const removeToast = useCallback(() => {
+  const removeToast = () => {
     setToasts((prevToasts) => prevToasts.slice(1));
-  }, []);
+  };
 
   useImperativeHandle(ref, () => ({
     addToast
@@ -31,15 +38,18 @@ export const ToastManager = forwardRef<ToastManagerHandles>((props, ref) => {
 
   return (
     <>
-      {toasts.map((toast, index) => (
+      {toasts.map((toast) => (
         <Toast
-          key={index}
+          key={toast.id}
+          id={toast.id}
           type={toast.type}
           content={toast.content}
           duration={toast.duration}
-          onClose={removeToast}
           onEnter={() => toast?.onEnter?.()}
-          onExited={() => toast?.onExited?.()}
+          onExited={() => {
+            toast?.onExited?.();
+            removeToast();
+          }}
         />
       ))}
     </>

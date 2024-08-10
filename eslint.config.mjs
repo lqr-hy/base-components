@@ -16,7 +16,8 @@ export default [
     ...pluginReact.configs.flat.recommended,
     settings: {
       react: {
-        version: 'detect' // Automatically detect the React version
+        version: 'detect', // Automatically detect the React version
+        
       }
     }
   },
@@ -29,5 +30,10 @@ export default [
       '**/play/',
       '**/server/',
     ]
+  },
+  {
+    rules: {
+      "react/react-in-jsx-scope": "off"
+    }
   }
 ];

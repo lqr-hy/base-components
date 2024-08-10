@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import React, { PropsWithChildren, useEffect, useRef, useState } from 'react';
+import { PropsWithChildren, useEffect, useRef, useState } from 'react';
 import { Icon } from '../Icon';
 import { createNamespace, useDrag } from '@xb-onepiece/utils';
 import request from './request';

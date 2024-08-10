@@ -1,7 +1,6 @@
 {
-  "name": "@xb-onepiece/elements",
-  "private": true,
-  "version": "0.0.0",
+  "name": "xb-onepiece-elements",
+  "version": "0.0.1",
   "type": "module",
   "main": "./dist/umd/index.umd.cjs",
   "module": "./dist/es/index.js",
@@ -17,13 +16,18 @@
       "require": "./dist/"
     }
   },
+  "license": "MIT",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "pnpm run build:es && pnpm run build:umd",
     "build:es": "vite build -c vite.es.config.ts",
     "build:umd": "vite build -c vite.umd.config.ts",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "release": "release-it"
   },
   "peerDependencies": {
     "react": ">=18",
@@ -47,5 +51,8 @@
     "eslint-plugin-react-refresh": "^0.4.7",
     "typescript": "^5.2.2",
     "vite": "^5.3.4"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
   }
 }

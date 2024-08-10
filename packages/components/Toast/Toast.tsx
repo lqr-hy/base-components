@@ -10,6 +10,7 @@ export type ToastType = 'default' | 'success' | 'warning' | 'error';
 export interface ToastProps {
   type: ToastType;
   content: string;
+  id?: number;
   style?: React.CSSProperties;
   duration?: number; // Duration in milliseconds
   onClose?: () => void;
@@ -32,9 +33,6 @@ const Toast: React.FC<ToastProps> = ({
   useEffect(() => {
     const timer = setTimeout(() => {
       setVisible(false);
-      if (onClose) {
-        onClose();
-      }
     }, duration);
 
     return () => clearTimeout(timer);
@@ -43,7 +41,7 @@ const Toast: React.FC<ToastProps> = ({
   return (
     <Transition
       in={visible}
-      timeout={500}
+      timeout={300}
       classNames="toast"
       onEnter={onEnter}
       onExited={onExited}

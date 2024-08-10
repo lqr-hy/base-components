@@ -1,32 +1,10 @@
-.toast-enter {
-  opacity: 0;
-  transform: translateY(-20px);
-}
-
-.toast-enter-active {
-  opacity: 1;
-  transform: translateY(0);
-  transition: opacity 500ms, transform 500ms;
-}
-
-.toast-exit {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.toast-exit-active {
-  opacity: 0;
-  transform: translateY(-20px);
-  transition: opacity 500ms, transform 500ms;
-}
-
 .l-toast-container {
   padding: 10px 20px;
   border-radius: 5px;
   position: fixed;
   top: 20px;
   right: 50%;
-  transform: translate(50%, 0);
+  transform: translateX(-50%);
   z-index: 1000;
 }
 
@@ -48,4 +26,37 @@
 .l-toast-container__error {
   background-color: var(--red);
   color: #fff;
+}
+
+.toast-enter {
+  opacity: 0;
+  transform: translate(-50%, -100%);
+}
+
+.toast-enter-active {
+  opacity: 1;
+  transform: translate(-50%, 0);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.toast-appear {
+  opacity: 0;
+  transform: translate(-50%, -100%);
+}
+
+.toast-appear-active {
+  opacity: 1;
+  transform: translate(-50%, 0);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.toast-exit {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+.toast-exit-active {
+  opacity: 0;
+  transform: translate(-50%, -100%);
+  transition: opacity 300ms, transform 300ms;
 }
