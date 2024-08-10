@@ -12,14 +12,6 @@ const config: StorybookConfig = {
   framework: {
     name: '@storybook/react-vite',
     options: {}
-  },
-  managerHead: (head) => `
-    ${head}
-    <base href="/elements/" />
-  `,
-  viteFinal: (config) => {
-    config.base = '/elements/'; // 设置 Vite 的基本路径
-    return config;
   }
 };
 export default config;
