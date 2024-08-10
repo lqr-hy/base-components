@@ -58,10 +58,10 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     steps:
-      - name: Download docs
+      - name: Download storybook
         uses: actions/download-artifact@v3
         with:
-          name: docs
+          name: storybook
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
