@@ -11,7 +11,7 @@
     "lint:style": "stylelint 'packages/**/*.(scss|css)' --fix",
     "prepare": "husky",
     "changelog": "npx conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md",
-    "build": "pnpm -c play build-storybook"
+    "build": "pnpm --filter play run build-storybook"
   },
   "keywords": [],
   "author": "",
