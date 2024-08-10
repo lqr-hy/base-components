@@ -52,7 +52,9 @@
     "typescript": "^5.2.2",
     "vite": "^5.3.4"
   },
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org"
+  "release-it": {
+    "npm": {
+      "publish": false
+    }
   }
 }

@@ -4,7 +4,7 @@
 ### Features
 
 * init ([e345f2e](https://github.com/lqrDream/base-components/commit/e345f2e060a6b781bc73681060c29e77aea49269))
-* toast 动画 ([3eb4d9f](https://github.com/lqrDream/base-components/commit/3eb4d9f1f1c85f523d47ee7fe5e90ce1a1c83c81))
+* toast 动画 ([2a033db](https://github.com/lqrDream/base-components/commit/2a033dbe276ca6a0eb8c13259996f056b681c63a))
 * Transition动画 ([00c9c9d](https://github.com/lqrDream/base-components/commit/00c9c9d41ea45769ba5104d9f72c309d347c9bcf))
 * 完成Menu组件 ([a766d51](https://github.com/lqrDream/base-components/commit/a766d51c3c407b806b9e88224686444f91d38594))
 * 完成虚拟滚动组件 ([f5889dd](https://github.com/lqrDream/base-components/commit/f5889ddcc21b051df5c0e8e4b53feba754c0dddf))
