@@ -1,4 +1,4 @@
-import{j as n}from"./jsx-runtime-DEdD30eg.js";import{useMDXComponents as c}from"./index-CcnH5Kt0.js";import{B as o,t as r}from"./index-zmJbRG5A.js";import"./index-RYns6xqu.js";import"./index-rNTiGNI1.js";import"./inheritsLoose-Co2FXOuK.js";import"./index-D16Yfzz8.js";import"./client-ngufn95y.js";function s(e){const t={code:"code",h1:"h1",h2:"h2",p:"p",pre:"pre",...c(),...e.components};return n.jsxs(n.Fragment,{children:[`
+import{j as n}from"./jsx-runtime-DEdD30eg.js";import{useMDXComponents as c}from"./index-CcnH5Kt0.js";import{B as o,t as r}from"./index-WgaPEjkK.js";import"./index-RYns6xqu.js";import"./index-rNTiGNI1.js";import"./inheritsLoose-Co2FXOuK.js";import"./index-D16Yfzz8.js";import"./client-ngufn95y.js";function s(e){const t={code:"code",h1:"h1",h2:"h2",p:"p",pre:"pre",...c(),...e.components};return n.jsxs(n.Fragment,{children:[`
 `,`
 `,n.jsx(t.h1,{id:"toast-组件",children:"Toast 组件"}),`
 `,n.jsxs(t.p,{children:[n.jsx(t.code,{children:"Toast"})," 组件用于显示简短的消息通知。"]}),`
