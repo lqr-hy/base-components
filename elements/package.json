@@ -27,7 +27,7 @@
     "build:umd": "vite build -c vite.umd.config.ts",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "release": "release-it"
+    "release": "ts-node ../scripts/publish.ts"
   },
   "peerDependencies": {
     "react": ">=18",
@@ -51,8 +51,5 @@
     "eslint-plugin-react-refresh": "^0.4.7",
     "typescript": "^5.2.2",
     "vite": "^5.3.4"
-  },
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org"
   }
 }
