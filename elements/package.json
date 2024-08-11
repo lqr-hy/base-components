@@ -1,6 +1,6 @@
 {
   "name": "xb-onepiece-elements",
-  "version": "0.0.1",
+  "version": "0.0.2-alpha.0",
   "type": "module",
   "main": "./dist/umd/index.umd.cjs",
   "module": "./dist/es/index.js",
